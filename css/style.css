@@ -13,6 +13,9 @@ body{
 form button {
   margin-top:2% ;
 }
+ul{
+  list-style: none;
+}
 form input {
   background-color:transparent;      
 }
