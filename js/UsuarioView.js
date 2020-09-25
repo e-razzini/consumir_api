@@ -59,7 +59,7 @@ if(acao == "add"){
         alert("Senha esta vazia.");
         var senhaTxt = senha.value;
     }
-     if(senhaTxt < 6){
+     if(senhaTxt.length < 6){
        // var senhaTxt = senha.value;
         dadosValidos=false;
         alert("Senha precisa no minimo 6 caracteres.");
