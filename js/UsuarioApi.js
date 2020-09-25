@@ -25,3 +25,21 @@ xhr.open("GET",url);
 xhr.send(data);
 
 }
+
+function adicionarUsuario(objUsuario){
+
+    var xhr =new XMLHttpRequest();
+
+    xhr.addEventListener("readystatechange",function(){
+     if(this.readyState === 4){
+         var usuario = JSON.parse(this.responseText);
+        // alert("usuario adicionado");
+         exibirUsuarios(usuarios);
+     }
+
+    });
+xhr.open("POST",url);
+
+xhr.send(JSON.stringify(objUsuario));
+
+}
