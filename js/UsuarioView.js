@@ -1,7 +1,7 @@
 function exibirUsuarios(Usuarios){
  
     popularTabela(Usuarios);
-    // this.btn();
+ 
  }
 var b = document.createElement("btn");
 
