@@ -19,13 +19,13 @@ function btn() {
     
     var button = document.createElement('button');
     button.setAttribute('type', 'button');
-    button.setAttribute('class', 'btn btn-outline-secondary');
+    button.setAttribute('class', 'btn btn-outline-success');
     button.appendChild(document.createTextNode('delete'));
     document.body.appendChild(button);
 
     var buttonEdit = document.createElement('button');
     buttonEdit.setAttribute('type','button')
-    buttonEdit.setAttribute('class', 'btn btn-outline-secondary');
+    buttonEdit.setAttribute('class', 'btn btn-outline-danger');
     buttonEdit.appendChild(document.createTextNode('editar'));
     document.body.appendChild(buttonEdit);
 
