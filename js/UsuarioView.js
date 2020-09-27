@@ -3,20 +3,17 @@ function exibirUsuarios(Usuarios){
     popularTabela(Usuarios);
  
  }
-var b = document.createElement("btn");
-
-
 
 function popularTabela(Usuarios) {
     
-    for(let i = 0; i < Usuarios.length; i++){
+    for (let i = 0; i < Usuarios.length; i++) {
         inserirLinhaTabela(Usuarios[i]);
-        
-        this.btn();
+               
     }
 }
+/*
 function btn() {
-    
+    //ESTA JOGANDO DENTRO DO CORPO DO HTML
     var button = document.createElement('button');
     button.setAttribute('type', 'button');
     button.setAttribute('class', 'btn btn-outline-success');
@@ -31,7 +28,7 @@ function btn() {
 
    
 }
-
+*/
 function inserirLinhaTabela(usuario){
 
         var tabela = document.getElementById('tabelaUsuarios');
@@ -50,6 +47,11 @@ function inserirLinhaTabela(usuario){
         var celLogin = novaLinha.insertCell(3);
         celLogin.innerHTML = usuario.login;
         
+       var celButtonEdite = novaLinha.insertCell(4);
+       celButtonEdite.innerHTML +="<button type="+"button"+"class="+"btn btn-outline-success"+">Editar</button>";
+        
+       var celButtonDelete = novaLinha.insertCell(5);
+       celButtonDelete.innerHTML += "<button type="+"button"+"class="+"btn btn-outline-danger"+">deletar</button>";
    
   }
 function validarUsuario(acao){
@@ -78,7 +80,6 @@ function validarUsuario(acao){
 
     dadosValidos = false;
     alert("Senha esta vazia,no minimo 6 caracteres.");
-    var senhaTxt = senha.value;
     }
     if(senhaValidar.value != senha.value){
 
@@ -109,6 +110,6 @@ function editarUser(acao) {
 
 }
 
-window.onload = function (){
-    getUsuario();
-};
+    window.onload = function () {
+        getUsuario();
+    };
