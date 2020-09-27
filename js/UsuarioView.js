@@ -87,10 +87,14 @@ function validarUsuario(acao){
 }
 return false;
 }
-function editarUser(acao) {
+function editarUser(objUsuario,codigo) {
     
   
 
+}
+
+function deleteUser(codigo) {
+    
 }
 
     window.onload = function () {
