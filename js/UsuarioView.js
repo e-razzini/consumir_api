@@ -11,24 +11,7 @@ function popularTabela(Usuarios) {
                
     }
 }
-/*
-function btn() {
-    //ESTA JOGANDO DENTRO DO CORPO DO HTML
-    var button = document.createElement('button');
-    button.setAttribute('type', 'button');
-    button.setAttribute('class', 'btn btn-outline-success');
-    button.appendChild(document.createTextNode('delete'));
-    document.body.appendChild(button);
 
-    var buttonEdit = document.createElement('button');
-    buttonEdit.setAttribute('type','button')
-    buttonEdit.setAttribute('class', 'btn btn-outline-danger');
-    buttonEdit.appendChild(document.createTextNode('editar'));
-    document.body.appendChild(buttonEdit);
-
-   
-}
-*/
 function inserirLinhaTabela(usuario){
 
         var tabela = document.getElementById('tabelaUsuarios');
@@ -47,11 +30,11 @@ function inserirLinhaTabela(usuario){
         var celLogin = novaLinha.insertCell(3);
         celLogin.innerHTML = usuario.login;
         
-       var celButtonEdite = novaLinha.insertCell(4);
-       celButtonEdite.innerHTML +="<button type="+"button"+"class="+"btn btn-outline-success"+">Editar</button>";
-        
-       var celButtonDelete = novaLinha.insertCell(5);
-       celButtonDelete.innerHTML += "<button type="+"button"+"class="+"btn btn-outline-danger"+">deletar</button>";
+        var celButtonEdite = novaLinha.insertCell(4);
+        celButtonEdite.innerHTML +='<button type="button"class="btn btn-secondary">Editar</button>';
+
+        var celButtonDelete = novaLinha.insertCell(5);
+        celButtonDelete.innerHTML += '<button type="button" class="btn btn-secondary">deletar</button>';
    
   }
 function validarUsuario(acao){
