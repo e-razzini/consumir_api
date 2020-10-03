@@ -59,7 +59,7 @@ function validarUsuario(){
     dadosValidos=false;
     alert("email, nome ou login sem preencher");
     }
-
+/*
     if (senha.value == "" || senhaTxt.length < 6) {
 
     dadosValidos = false;
@@ -71,7 +71,7 @@ function validarUsuario(){
     alert("senhas nao correspondem.");
 
     }
-
+*/
     if(dadosValidos){
     //ENVIAR PARA API
     var objUsuario = {

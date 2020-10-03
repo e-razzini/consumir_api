@@ -53,7 +53,7 @@ function editarUsuario() {
     xhr.open("PUT", url + '/codigo =' + codigo, true);
     
     xhr.setRequestHeader('content-type','application/json;charset=utf-8');
-    xhr.onload = function (codigo) {
+    xhr.onload = function (){
 
         var usuario = JSON.parse(xhr.responseText);
         if (this.readyState === 4 ) {
@@ -72,19 +72,18 @@ function deletarUsuario(codigo) {
     var xhr = new XMLHttpRequest();
 
      //xhr.withCredentials = true;
+     xhr.open("DELETE", url + "?codigo=" + codigo);
 
     xhr.addEventListener("readystatechange",function(){
-
-        if(this.readyState === 4){
-            var usuarios = JSON.parse(this.responseText);
-            // faça algo
+        
+        
+        if (this.readyState === 4) {    
+          //  console.log("deletado");
+           //exibirUsuarios(usuarios);
         }
         
     });
     
-    xhr.open("DELETE",url+"?codigo="+codigo);
     xhr.send(data);
-    exibirUsuarios(usuarios);
-
 
 }
