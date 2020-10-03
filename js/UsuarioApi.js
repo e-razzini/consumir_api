@@ -43,7 +43,8 @@ xhr.open("POST",url);
 xhr.send(JSON.stringify(objUsuario));
 
 }
-function editarUsuario(codigo,objUsuario) {
+
+function editarUsuario() {
     
     let json = JSON.stringify(objUsuario);
     
@@ -52,33 +53,38 @@ function editarUsuario(codigo,objUsuario) {
     xhr.open("PUT", url + '/codigo =' + codigo, true);
     
     xhr.setRequestHeader('content-type','application/json;charset=utf-8');
-    xhr.onload = function () {
-        
+    xhr.onload = function (codigo) {
+
         var usuario = JSON.parse(xhr.responseText);
         if (this.readyState === 4 ) {
-            
-            exibirUsuarios(usuarios);
+          
         } else {
-            console.log("error");
+            
         }
     }
-    
-    xhr.send(json);
+          xhr.send(json);
 }
+
+
 function deletarUsuario(codigo) {
-    
+  
+    var data = new FormData();
     var xhr = new XMLHttpRequest();
 
-    xhr.open("DELETE", url + '/codigo=' + codigo, true);
-    
-    xhr.onload = function () {
-        var usuario = JSON.parse(xhr.responseText);
-        if (xhr.readyState == 4 ) {
+     //xhr.withCredentials = true;
 
-            exibirUsuarios(usuarios);
-        } else {
-            console.log('erro');
+    xhr.addEventListener("readystatechange",function(){
+
+        if(this.readyState === 4){
+            var usuarios = JSON.parse(this.responseText);
+            // faça algo
         }
-    }
-    xhr.send(null);
+        
+    });
+    
+    xhr.open("DELETE",url+"?codigo="+codigo);
+    xhr.send(data);
+    exibirUsuarios(usuarios);
+
+
 }

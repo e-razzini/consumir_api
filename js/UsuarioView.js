@@ -31,21 +31,21 @@ function inserirLinhaTabela(usuario){
         celLogin.innerHTML = usuario.login;
         
         var celButtonEdite = novaLinha.insertCell(4);
-        celButtonEdite.innerHTML +='<button type="button"class="btn btn-secondary">Editar</button>';
+        
+        var btn_edit ='<button type="button"class="btn btn-secondary"  onClick ="editarUser(\''+usuario.codigo +'\',\''+usuario.nome +'\',\'' + usuario.email+'\',\''+usuario.login+'\')">Editar</button>';
+        var btn_delet ='<button type="button" class="btn btn-secondary"  onClick ="deletarUsuario(\''+ usuario.codigo +'\')">deletar</button>';
+        
+        celButtonEdite.innerHTML = btn_edit + btn_delet;
 
-        var celButtonDelete = novaLinha.insertCell(5);
-        celButtonDelete.innerHTML += '<button type="button" class="btn btn-secondary">deletar</button>';
    
   }
-function validarUsuario(acao){
-
+function validarUsuario(){
+    var codigo =document.getElementById('codigo');
     var nome  =document.getElementById('nome');
     var email =document.getElementById('email');
     var login =document.getElementById('login');
     var senha =document.getElementById('senha');
     var senhaValidar =document.getElementById('senhaValidar');
-
-    if(acao == "add"){
 
     /*força o dado para  outro determinado dado
     var senhaInt =parseInt(senha.value);
@@ -53,6 +53,7 @@ function validarUsuario(acao){
     */
     var dadosValidos = true;
     var senhaTxt = senha.value;
+
     if(nome.value == "" || email.value == "" || login.senha == "" ){
 
     dadosValidos=false;
@@ -79,23 +80,36 @@ function validarUsuario(acao){
     "login":login.value,
     "senha":senha.value
     };
-    alert("usuario enviado");
+    if(codigo == ""){
+        editarUser(codigo);
+    }
     //adiciona novo usuario
-    //adicionarUsuario(objUsuario);
+    adicionarUsuario(objUsuario);
 }
 
-}
 return false;
 }
-function editarUser(objUsuario,codigo) {
+function editarUser(codigoParam,nomeParam,emailParam,loginParam) {
     
-  
+    var codigo =document.getElementById('codigo');
+    var nome  =document.getElementById('nome');
+    var email =document.getElementById('email');
+    var login =document.getElementById('login');
+    var senha =document.getElementById('senha');
+
+    nome.value = nomeParam;
+    email.value =emailParam;
+    login.value = loginParam;
+    codigo.value = codigoParam;
 
 }
 
-function deleteUser(codigo) {
-    
-}
+function deleteUser(codigoPara) {
+    var codigo = Document.getElementById('codigo');
+
+    codigo.value = codigoPara;
+
+    }
 
     window.onload = function () {
         getUsuario();
