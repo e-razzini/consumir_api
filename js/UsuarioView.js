@@ -74,7 +74,8 @@ function validarUsuario(){
 */
     if(dadosValidos){
     //ENVIAR PARA API
-    var objUsuario = {
+        var objUsuario = {
+    "codigo":codigo.value,
     "nome":nome.value,
     "email":email.value,
     "login":login.value,
@@ -108,7 +109,7 @@ function deleteUser(codigoPara) {
 
     var codigo = Document.getElementById('codigo');
     codigo.value = codigoPara;
-    deletarUsuario(codigo);
+    
     }
 
     window.onload = function () {

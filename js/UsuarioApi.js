@@ -44,7 +44,7 @@ xhr.send(JSON.stringify(objUsuario));
 
 }
 
-function editarUsuario() {
+function editarUsuario(codigo,objUsuario) {
     
     let json = JSON.stringify(objUsuario);
     
@@ -53,14 +53,12 @@ function editarUsuario() {
     xhr.open("PUT", url + '/codigo =' + codigo, true);
     
     xhr.setRequestHeader('content-type','application/json;charset=utf-8');
-    xhr.onload = function (){
+    xhr.onload = function (codigo){
 
         var usuario = JSON.parse(xhr.responseText);
         if (this.readyState === 4 ) {
-          
-        } else {
-            
-        }
+            exibirUsuarios(usuarios);
+        } 
     }
           xhr.send(json);
 }
