@@ -105,10 +105,10 @@ function editarUser(codigoParam,nomeParam,emailParam,loginParam) {
 }
 
 function deleteUser(codigoPara) {
+
     var codigo = Document.getElementById('codigo');
-
     codigo.value = codigoPara;
-
+    deletarUsuario(codigo);
     }
 
     window.onload = function () {

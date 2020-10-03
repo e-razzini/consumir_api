@@ -71,15 +71,14 @@ function deletarUsuario(codigo) {
     var data = new FormData();
     var xhr = new XMLHttpRequest();
 
-     //xhr.withCredentials = true;
-     xhr.open("DELETE", url + "?codigo=" + codigo);
-
-    xhr.addEventListener("readystatechange",function(){
-        
-        
-        if (this.readyState === 4) {    
-          //  console.log("deletado");
-           //exibirUsuarios(usuarios);
+    xhr.open("DELETE", url + "?codigo=" + codigo);
+    //var usuario = JSON.parse(this.responseText);
+    
+     xhr.addEventListener("readystatechange",function(){
+         
+         
+         if (this.readyState === 4) {    
+          console.log("deletado");      
         }
         
     });
