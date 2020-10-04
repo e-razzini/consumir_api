@@ -39,7 +39,8 @@ function inserirLinhaTabela(usuario){
 
    
   }
-function validarUsuario(){
+function validarUsuario() {
+    
     var codigo =document.getElementById('codigo');
     var nome  =document.getElementById('nome');
     var email =document.getElementById('email');
@@ -47,10 +48,7 @@ function validarUsuario(){
     var senha =document.getElementById('senha');
     var senhaValidar =document.getElementById('senhaValidar');
 
-    /*força o dado para  outro determinado dado
-    var senhaInt =parseInt(senha.value);
-    var senhaFloat =parseFloat(senha.value);
-    */
+   
     var dadosValidos = true;
     var senhaTxt = senha.value;
     
@@ -60,7 +58,7 @@ function validarUsuario(){
             dadosValidos = false;
             alert("email, nome ou login sem preencher");
         }
-        /*
+        
             if (senha.value == "" || senhaTxt.length < 6) {
         
             dadosValidos = false;
@@ -72,7 +70,7 @@ function validarUsuario(){
             alert("senhas nao correspondem.");
         
             }
-        */
+    
         if (dadosValidos) {
             //ENVIAR PARA API
             var objUsuario = {
@@ -83,11 +81,10 @@ function validarUsuario(){
                 "senha": senha.value
             };
     
-            if (codigo.value != 0) {
-                adicionarUsuario(objUsuario);
-                
+            if (codigo !== "") {
+                editarUser(codigo, nome, email, login);                
             } else {
-                editarUser(codigo, nome, email, login);
+                adicionarUsuario(objUsuario);
             }
 
         }
