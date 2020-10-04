@@ -53,43 +53,49 @@ function validarUsuario(){
     */
     var dadosValidos = true;
     var senhaTxt = senha.value;
+    
 
-    if(nome.value == "" || email.value == "" || login.senha == "" ){
+        if (nome.value == "" || email.value == "" || login.senha == "") {
 
-    dadosValidos=false;
-    alert("email, nome ou login sem preencher");
-    }
-/*
-    if (senha.value == "" || senhaTxt.length < 6) {
+            dadosValidos = false;
+            alert("email, nome ou login sem preencher");
+        }
+        /*
+            if (senha.value == "" || senhaTxt.length < 6) {
+        
+            dadosValidos = false;
+            alert("Senha esta vazia,no minimo 6 caracteres.");
+            }
+            if(senhaValidar.value != senha.value){
+        
+            dadosValidos=false;
+            alert("senhas nao correspondem.");
+        
+            }
+        */
+        if (dadosValidos) {
+            //ENVIAR PARA API
+            var objUsuario = {
+                "codigo": codigo.value,
+                "nome": nome.value,
+                "email": email.value,
+                "login": login.value,
+                "senha": senha.value
+            };
+    
+            if (codigo.value != 0) {
+                adicionarUsuario(objUsuario);
+                
+            } else {
+                editarUser(codigo, nome, email, login);
+            }
 
-    dadosValidos = false;
-    alert("Senha esta vazia,no minimo 6 caracteres.");
-    }
-    if(senhaValidar.value != senha.value){
-
-    dadosValidos=false;
-    alert("senhas nao correspondem.");
-
-    }
-*/
-    if(dadosValidos){
-    //ENVIAR PARA API
-        var objUsuario = {
-    "codigo":codigo.value,
-    "nome":nome.value,
-    "email":email.value,
-    "login":login.value,
-    "senha":senha.value
-    };
-    if(codigo == ""){
-        editarUser(codigo);
-    }
-    //adiciona novo usuario
-    adicionarUsuario(objUsuario);
-}
+        }
+    
 
 return false;
 }
+
 function editarUser(codigoParam,nomeParam,emailParam,loginParam) {
     
     var codigo =document.getElementById('codigo');
@@ -102,14 +108,24 @@ function editarUser(codigoParam,nomeParam,emailParam,loginParam) {
     email.value =emailParam;
     login.value = loginParam;
     codigo.value = codigoParam;
+     
+    var objUsuario = {
 
+        "codigo": codigo.value,
+        "nome": nome.value,
+        "email": email.value,
+        "login": login.value,
+        "senha": senha.value
+    };
+
+    editarUsuario(codigo,objUsuario);
 }
 
 function deleteUser(codigoPara) {
 
     var codigo = Document.getElementById('codigo');
     codigo.value = codigoPara;
-    
+  
     }
 
     window.onload = function () {

@@ -33,7 +33,7 @@ function adicionarUsuario(objUsuario){
     xhr.addEventListener("readystatechange",function(){
      if(this.readyState === 4){
          var usuario = JSON.parse(this.responseText);
-        // alert("usuario adicionado");
+        
          exibirUsuarios(usuarios);
      }
 
@@ -46,18 +46,20 @@ xhr.send(JSON.stringify(objUsuario));
 
 function editarUsuario(codigo,objUsuario) {
     
+   
+    var xhr = new XMLHttpRequest();
+
     let json = JSON.stringify(objUsuario);
     
-    var xhr = new XMLHttpRequest();
     
-    xhr.open("PUT", url + '/codigo =' + codigo, true);
+    xhr.open("PUT", url+'/codigo='+ codigo, true);
     
     xhr.setRequestHeader('content-type','application/json;charset=utf-8');
-    xhr.onload = function (codigo){
+    xhr.onload = function (){
 
         var usuario = JSON.parse(xhr.responseText);
         if (this.readyState === 4 ) {
-            exibirUsuarios(usuarios);
+          
         } 
     }
           xhr.send(json);
@@ -70,13 +72,13 @@ function deletarUsuario(codigo) {
     var xhr = new XMLHttpRequest();
 
     xhr.open("DELETE", url + "?codigo=" + codigo);
-    //var usuario = JSON.parse(this.responseText);
+   
     
      xhr.addEventListener("readystatechange",function(){
          
          
          if (this.readyState === 4) {    
-          console.log("deletado");      
+                
         }
         
     });
